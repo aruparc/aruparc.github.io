@@ -63,15 +63,20 @@
         <div class="col-md-6 col-md-offset-3 mb80 text-center probootstrap-animate">
           <h2>The Errol Agent</h2>
           <p>
-            During my time working at an early stage startup by the name of Tiger Lilia, I began to notice
-            a recurring problem we had during our weekly meetings. We would have team-wide to-do lists written down
-            on paper or post-its, but would soon be met with the problem of how to best share that list within as well as outside our team. 
-            Emails were becoming cluttered,
-            and more robust apps such as Slack and Trello offered more features than we had actually needed.
+            As a part of my graduate studies at the Georgia Institute of Technology, I am working in a graduate research team 
+            advised by <a href="https://en.wikipedia.org/wiki/Ashok_Goel" target="blank">Professor Ashok Goel</a> in building
+            a knowledge-based AI agent tasked with assisting first-time startup founders with improvements to their business
+            model canvas. The agent, Errol, takes in the user's business model canvas (BMC) and asks the user questions regarding segments
+            of the BMC. These questions are geared towards improvements for the Customer Segment and Value Proposition sections.            
           </p>    
+          <p>The agent initially had a simple HTML, CSS, JS page, with a complex input parsing algorithm in the backend.
+            It could take user inputs for Customer Segment and Value Proposition and run lexical analysis on the input phrases
+            to obtain the meanings. Errol would then run a rule-based suggestion output system; certain rules were triggered based
+            on certain keywords in the input phrases.
+          </p>
           <p>
-            I quickly realized that the solution to the problem of finding a lightweight, fast, sharable, and persistent 
-            to-do list was to simply make one. 
+            After a round of user testing in May 2019, we observed that the agent needed a serious redesign, both frontend and backend. 
+            Below is a brief overview of those changes. 
           </p>
         </div>
       </div>
@@ -81,7 +86,7 @@
           </div>
 
           <div class="col-md-10 probootstrap-animate" data-animate-effect="fadeIn">
-            <a class="img-bg" style="background-image: url(img/post/Picture1.png);">
+            <a class="img-bg" style="background-image: url(img/errol/Picture1.png);">
               <div class="probootstrap-photo-details">
                 <!-- <h2>Pond: The App for Meeting New People in Real Life</h2>
                 <p>Social Media</p> -->
@@ -94,8 +99,17 @@
         </div>
         <div class="col-md-8 text-center">
           <h2 class="mt0 text-center">Design Goal</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>    
-          <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+          <p>I joined the Errol team in May 2019, and after some qualitative user testing with a low fidelity interface, we were seeing some patterns in user responses.
+            Users had observed that the user interface came off to users as "incomplete" and "simple". Users also mentioned that the interface seemed "like something
+          from the early 2000's."
+          With regards to the suggestion-output functionality, users noted that certain output phrases were contradictory, and that other phrases were
+          not accurate to the user's inputs. Users also mentioned that the outputs seemed croweded, and that it was hard to distinguish which
+          suggestions corresponeded to which segment (Customers or Values).
+        </p>
+        <p>
+          This led to us forming redesign goals. Working with another student, Mukundan Kuthalam, we planned to redesign both the interface
+          as well as the backend algorithm for question parsing and phrase outputing.
+        </p>     
         </div>
       </div>
   
@@ -105,7 +119,7 @@
           </div>
 
           <div class="col-md-10 probootstrap-animate" data-animate-effect="fadeIn">
-            <a class="img-bg" style="background-image: url(img/post/Picture2.png);">
+            <a class="img-bg" style="background-image: url(img/errol/sketches.png);">
               <div class="probootstrap-photo-details">
                 <!-- <h2>Pond: The App for Meeting New People in Real Life</h2>
                 <p>Social Media</p> -->
@@ -118,12 +132,16 @@
         </div>
         <div class="col-md-8 text-center">
           <p>
-            Our app did not necessitate users to create accounts to be able to view movie listings shown 
-            by the Wisconsin Union Directorate, so we opted for the main view of our app to show movie listings 
-            right away. We designed a scrollable view in which we would load views of movie listings, 
-            with all necessary information about the movie itself along with upcoming showtimes. 
-            The top navigation bar consists of an Email icon and a Settings icon. The email view design 
-            is discussed below, and the settings view design is discussed below that.        
+            I began my frontend redesign by quickly whiteboard-sketching possible designs that might help to give our users 
+            a more "professional" and "complete" feel of Errol, as they had suggested in user interviews. This led me to pursue
+            designs for a complete dashboard, rather than a single page of inputs and outputs.
+          </p>
+          <p>
+            To further help with the feeling of "completeness" as users had craved, I sketched a storyboard to show the flow of 
+            the many pages we would need to implement, which included a login/signup, our main dashboard, and a user settings page.
+            I added the login and signup feature not only for completeness purposes, but also to plan for future user testing; the 
+            Errol agent is built around helping multiple startup teams, and so personalized user accounts would be critical in 
+            helping teams keep track of their individual business models and progress through Errol.
           </p>
         </div>
       </div>
@@ -133,7 +151,7 @@
           </div>
 
           <div class="col-md-10 probootstrap-animate" data-animate-effect="fadeIn">
-            <a class="img-bg" style="background-image: url(img/post/Picture3.png);">
+            <a class="img-bg" style="background-image: url(img/errol/logins.png);">
               <div class="probootstrap-photo-details">
                 <!-- <h2>Pond: The App for Meeting New People in Real Life</h2>
                 <p>Social Media</p> -->
@@ -146,39 +164,65 @@
         </div>
         <div class="col-md-8 text-center">
           <p>
-              One of the requirements our clients gave us for the app was to provide users an 
-              option to subscribe for email notifications on movie listings and events. Therefore, 
-              we designed a minimalist email submission form, that allows users to submit their email 
-              addresses if they so wished, to recieve notifications.       
+              As I mentioned earlier, personalized user accounts would be crucial in 
+              helping teams keep track of their individual business models and progress through Errol. The mockup 
+              I designed in Adobe XD was devoted to simplicity and ease of use.        
           </p>
         </div>
       </div>
 
-      <!-- <div class="row probootstrap-gutter16">
+      <div class="row probootstrap-gutter16">
           <div class="col-md-1 probootstrap-animate" data-animate-effect="fadeIn">
           </div>
 
           <div class="col-md-10 probootstrap-animate" data-animate-effect="fadeIn">
-            <a class="img-bg" style="background-image: url(img/post/post3.png);">
+            <a class="img-bg" style="background-image: url(img/errol/dash.png);">
               <div class="probootstrap-photo-details">
-
+                <!-- <h2>Pond: The App for Meeting New People in Real Life</h2>
+                <p>Social Media</p> -->
               </div>
             </a>
-          </div> 
-        
+          </div>
+      
       <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
         <div class="col-md-2">
         </div>
         <div class="col-md-8 text-center">
           <p>
-            We also designed a Settings page, so that users would feel a sense of 
-            personalization with our application. Another purpose of this design was 
-            to have a place to hold all of our legal documents and disclaimers.
+            The design of the dashboard was meant to convey a feeling of professionalism. After all, we were geared towards helping
+            early stage businesses improve their business models. I made sure to maintain the Customer Segment and Value Proposition
+            fields, as these were our primary segments for outputing suggestions to the user. After inputs were entered,
+            suggestions would be formed through the backend algorithm and displayed below.
           </p>
         </div>
-      </div> -->
+      </div>
 
-    </section>
+      <div class="row probootstrap-gutter16">
+          <div class="col-md-1 probootstrap-animate" data-animate-effect="fadeIn">
+          </div>
+
+          <div class="col-md-10 probootstrap-animate" data-animate-effect="fadeIn">
+            <a class="img-bg" style="background-image: url(img/errol/welcome.png);">
+              <div class="probootstrap-photo-details">
+                <!-- <h2>Pond: The App for Meeting New People in Real Life</h2>
+                <p>Social Media</p> -->
+              </div>
+            </a>
+          </div>
+      
+      <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 text-center">
+          <p>
+            Currently, the Errol redesign is still in progress. While the authentication and user account creation have been implemented, we
+            hope to complete the other pages and functionality by the end of the semester, and are planning another round of user testing.
+            Stay tuned for more updates in the near future!
+          </p>
+        </div>
+      </div>
+
+      
   <!-- END section -->
 
   <footer class="probootstrap-footer" role="contentinfo">
