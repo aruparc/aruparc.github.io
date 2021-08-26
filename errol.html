@@ -102,10 +102,12 @@
         <div class="col-md-2">
         </div>
         <div class="col-md-8 text-center">
-          <h2 class="mt0 text-center">User Driven Design Goals</h2>
+          <h2 class="mt0 text-center">Project Goals</h2>
           <p>I joined the Errol team in May 2019, and after some qualitative user testing with a low fidelity interface, we were seeing some patterns in user responses.
             Users had observed that the user interface came off to users as "incomplete" and "simple". Users also mentioned that the interface seemed "like something
           from the early 2000's."
+        </p>
+        <p>
           With regards to the suggestion-output functionality, users noted that certain output phrases were contradictory, and that other phrases were
           not accurate to the user's inputs. Users also mentioned that the outputs seemed croweded, and that it was hard to distinguish which
           suggestions corresponeded to which segment (Customers or Values).
@@ -176,26 +178,83 @@
         </div>
       </div>
 
-      <div class="row probootstrap-gutter16">
-          <div class="col-md-1 probootstrap-animate" data-animate-effect="fadeIn">
-          </div>
 
-          <div class="col-md-10 probootstrap-animate" data-animate-effect="fadeIn">
-            <a class="img-bg" style="background-image: url(img/errol/welcome.png);">
-              <div class="probootstrap-photo-details">
-                <!-- <h2>Pond: The App for Meeting New People in Real Life</h2>
-                <p>Social Media</p> -->
-              </div>
-            </a>
+      <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 text-center">
+          <h2 class="mt0 text-center">Natural Language Processing Algorithm</h2>
+        <p></p>
+        <p>
+          The user input processing is handled using the <a href=https://www.nltk.org/ target="_blank">NLTK</a> Python library to analyze the user input statements for parts of speech.
+          First a rule-table is used to handle edge conditions of the user input (ie. not enough information given by the user, user-given descriptions are not specific enough, etc.).
+          If rules in this table are triggered, a series of hard-coded questions are generated and displayed to the user, either asking for more information or for a rephrase
+          of the input statement.
+          See below:
+        </p>
+        <p>
+        </p>     
+        </div>
+      </div>
+      
+      <div class="row probootstrap-gutter6">
+        <div class="col-md-1 probootstrap-animate" data-animate-effect="fadeIn">
+        </div>
+
+        <div class="col-md-10 probootstrap-animate" data-animate-effect="fadeIn">
+          <a class="img-bg" style="background-image: url(img/errol/rule-based2.JPG); size: 50%>
+            <div class="probootstrap-photo-details">
+              <!-- <h2>Pond: The App for Meeting New People in Real Life</h2>
+              <p>Social Media</p> -->
+            </div>
+          </a>
+        </div>
+
+        <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
+          <div class="col-md-2">
           </div>
+          <div class="col-md-8 text-center">
+            <p>
+              Assuming none of the edge-case rules are hit, the NLTK library is then used to scan the parts of speech in the user input phrases.
+              The keywords, subjects, and objects are parsed from the input phrases, and queries are run to our knowledgebase to retrieve related
+              concepts and actions.
+            </p>
+            <p>
+              For our knowledgebase, we use <a href=https://conceptnet.io/ target="_blank">ConceptNet</a>, which is an open-source ontology with an external API, allowing us to 
+              query for keywords from our users' inputs. The result of the query is a list of related concepts and their meanings, which then allow us to formulate 
+              meaningful responses to the users' inputs in the form of our own questions. 
+            </p>
+            <p>
+              Below is an example of some sample questions that may be generated for a user-inputs containing keyword "nurses":
+            </p>
+            <p>
+            </p>
+            <h2>
+              "You mentioned 'nurses', would you also like to include 'doctors' in your business model?"
+            </h2>
+            <h2>
+              "Often 'nurses' work with 'patients'. Are 'patients' also a part of your Customer Segment?"
+            </h2>
+            <h2>
+              "You mentioned 'training' as a value proposition for 'nurses'. What other key products or services could you provide for 'nurses'?"
+            </h2>
+          </div>
+        </div>
+
+
       
       <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
         <div class="col-md-2">
         </div>
         <div class="col-md-8 text-center">
           <p>
-            Currently, the Errol redesign is still in progress. While the authentication and user account creation have been implemented, we
-            hope to complete the other pages and functionality by the end of the semester, and are planning another round of user testing.
+            Currently, the Errol redesign is still in progress. However, you can see the work that was done along with other students in 
+            Georgia Tech's <a href="http://dilab.gatech.edu/errol/" target="_blank">Design and Intelligence Lab</a> advised by <a href="http://dilab.gatech.edu/ashok-k-goel/">Professor Ashok Goel</a>.
+          </p>
+          <p>
+            You can also visit the whitepaper published in 2020 regarding the team's progress here: <a href=https://smartech.gatech.edu/handle/1853/63976 target="_blank">Paper link</a>
+          </p>
+          <p>
             Stay tuned for more updates in the near future!
           </p>
         </div>
