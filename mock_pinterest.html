@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arup Arcalgud</title>
+    <meta name="description" content="Free Bootstrap Theme by uicookies.com">
+    <meta name="keywords" content="arup, arcalgud, ux designer, ui designer, ui/ux, product design, free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+    
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles-merged.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  <!-- START: header -->
+  
+  <div class="probootstrap-loader"></div>
+
+  <header role="banner" class="probootstrap-header">
+    <div class="container">
+      <a href="index.html" class="probootstrap-logo">Arup Arcalgud<span>.</span></a>
+        
+        <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
+        <div class="mobile-menu-overlay"></div>
+
+        <nav role="navigation" class="probootstrap-nav hidden-xs">
+          <ul class="probootstrap-main-nav">
+            <li class="active"><a href="index.html">Portfolio</a></li>
+            <li><a href="services.html">Education</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="resume.html">Resume</a></li>
+
+          </ul>
+          <!-- <div class="extra-text visible-xs"> 
+            <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
+            <h5>Address</h5>
+            <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+            <h5>Connect</h5>
+            <ul class="social-buttons">
+              <li><a href="#"><i class="icon-twitter"></i></a></li>
+              <li><a href="#"><i class="icon-facebook2"></i></a></li>
+              <li><a href="#"><i class="icon-instagram2"></i></a></li>
+            </ul>
+          </div> -->
+        </nav>
+    </div>
+  </header>
+  <!-- END: header -->
+
+  <section class="probootstrap-section">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-6 col-md-offset-3 mb80 text-center probootstrap-animate">
+          <h2>Mock Pinterest: An Image Recommender</h2>
+          <p>July 2021</p>
+          <p>
+            I recently moved into a new apartment, and I started using Pinterest more and more for fresh ideas on how I could decorate the interior of my new place.
+            As I browsed from Pin to Pin, my mind started wondering how an image recommender like Pinterest would work. How could I build an image recommender system?
+            Of course, I wouldn't have access to the complex tools and technologies used at Pinterest, but I could definitely experiment with tools I am already familiar with, such as Keras and Scikit-Learn to understand
+            the underpinnings of a basic image recommender system.           
+          </p>    
+
+        </div>
+      </div>
+
+      <div class="row probootstrap-gutter16">
+          <div class="col-md-1 probootstrap-animate" data-animate-effect="fadeIn">
+          </div>
+
+          <div class="col-md-10 probootstrap-animate" data-animate-effect="fadeIn">
+            <a class="img-bg" style="background-image: url(img/mock_pinterest/pinterest_intro.jpg);">
+              <div class="probootstrap-photo-details">
+                <!-- <h2>Pond: The App for Meeting New People in Real Life</h2>
+                <p>Social Media</p> -->
+              </div>
+            </a>
+      </div>
+      <br>
+      <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 text-center">
+            <h2 class="mt0 text-center">Project Goals</h2>
+            <p>
+                The goals of this little project were simple. I wanted to understand how an image recommender would work, end-to-end. 
+                I wanted to know how a dataset of raw images as JPGs or PNGs could
+                be used by some sort of image classification model to find other similar images in the dataset. Through some of my
+                previous projects, I knew that cosine similarity (or any similar distance metric) needed to be used as the meat of 
+                the recommender algorithm to find close/related datapoints. All that was left to do was figure out how to build a
+                Keras model to recognize images.
+            </p>
+        </div>
+      </div>
+  
+
+      <div class="row probootstrap-gutter16">
+          <div class="col-md-1 probootstrap-animate" data-animate-effect="fadeIn">
+          </div>
+
+          <div class="col-md-10 probootstrap-animate" data-animate-effect="fadeIn">
+            <a class="img-bg" style="background-image: url(img/mock_pinterest/keras_vgg16.png);">
+              <div class="probootstrap-photo-details">
+                <!-- <h2>Pond: The App for Meeting New People in Real Life</h2>
+                <p>Social Media</p> -->
+              </div>
+            </a>
+          </div>
+      
+      <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 text-center">
+          <p>
+            I knew I had to start by building a good image classification model in order to compare images for similarities. However, the deeper
+            I dove into image model architectures, I began to realize that Keras has numerous pre-trained machine learning models, all of which
+            would already perform much better than anything I could cook up on my own. Therefore, I decided to leverage these models instead
+            and play around to see how these models perform on a given set of JPG images. 
+          </p>
+          <p>
+            The main models I experimented with are the Keras VGG16, VGG19, and the InceptionV3, among others. The dataset I wanted to use was a 
+            set of raw JPG images, and since I wanted to make a mock-Pinterest, I decided on a clothing dataset that can be found here on Kaggle.
+          </p>
+        </div>
+      </div>
+
+      
+  <!-- END section -->
+
+  <footer class="probootstrap-footer" role="contentinfo">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <p class="probootstrap-copyright" style="font-size: 10px">&copy; Adapted from <a href="https://uicookies.com/" target="blank">uiCookies:Explorer</a> All Rights Reserved.</p>
+            <ul class="probootstrap-social">
+              <li><a href="https://www.linkedin.com/in/arup-arcalgud-577659110/" target="_blank"><i class="icon-linkedin"></i></a></li>
+              <li><a href="https://github.com/aruparc" target="_blank"><i class="icon-github"></i></a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-chevron-thin-up"></i></a>
+  </div>
+  
+
+  <script src="js/scripts.min.js"></script>
+  <script src="js/main.min.js"></script>
+  <script src="js/custom.js"></script>
+  </body>
+</html>
