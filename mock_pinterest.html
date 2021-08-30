@@ -92,6 +92,8 @@
         <div class="col-md-2">
         </div>
         <div class="col-md-8 text-center">
+            <h5>Pinterest: https://pinterest.com</h5>
+            <br>
             <h2 class="mt0 text-center">Project Goals</h2>
             <p>
                 The goals of this little project were simple. I wanted to understand how an image recommender would work, end-to-end. 
@@ -111,17 +113,17 @@
 
           <div class="col-md-10 probootstrap-animate" data-animate-effect="fadeIn">
             <a class="img-bg" style="background-image: url(img/mock_pinterest/keras_vgg16.png);">
-              <div class="probootstrap-photo-details">
-                <!-- <h2>Pond: The App for Meeting New People in Real Life</h2>
-                <p>Social Media</p> -->
-              </div>
+
             </a>
           </div>
+      </div>
       
       <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
         <div class="col-md-2">
         </div>
         <div class="col-md-8 text-center">
+          <h5>VGG16 Architecture: https://neurohive.io/en/popular-networks/vgg16/</h5>
+          <br>
           <p>
             I knew I had to start by building a good image classification model in order to compare images for similarities. However, the deeper
             I dove into image model architectures, I began to realize that Keras has numerous pre-trained machine learning models, all of which
@@ -130,10 +132,128 @@
           </p>
           <p>
             The main models I experimented with are the Keras VGG16, VGG19, and the InceptionV3, among others. The dataset I wanted to use was a 
-            set of raw JPG images, and since I wanted to make a mock-Pinterest, I decided on a clothing dataset that can be found here on Kaggle.
+            set of raw JPG images, and since I wanted to make a mock-Pinterest, I decided on a clothing dataset that can be found <a href="https://www.kaggle.com/paramaggarwal/fashion-product-images-small" target="_blank">here on Kaggle</a>.
           </p>
         </div>
       </div>
+
+      <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 text-center">
+            <h2 class="mt0 text-center">What I Learned</h2>
+            <p>
+              With this project, as well as other machine learning/data analytics projects I've worked on, I've revisited the point of how critical 
+              it is to properly pre-process the data you are given. In this case, each image in the dataset needed to first be loaded using the 
+              <a href="https://en.wikipedia.org/wiki/Python_Imaging_Library" target="_blank">Python Image Library</a> and resized to match
+              the input size and dimensions of the model that was going to be used. So in the case of the VGG16 model, each image needed to be resized to 
+              (224, 224, 3) size, corresponding to (width, height, color_channel) as it was loaded in. Each image then needed to be converted to a Numpy 
+              array to be fed into our model. But each model has an input size of (batch_size, height, width, channel), and 
+              so an extra dimension was added using np.expand_dims() to coerce our image array to the necessary input size for the.
+            </p>
+            <p>
+              Aside from pre-processing the JPG images, I also needed to pre-process the model itself, which was something I hadn't done before. Since the pre-trained Keras
+              models are set up for image classification, the final layer in each of the models was a prediction layer that output an image object prediction. 
+              The image recommender needed to instead calculate similarity on image <i>features</i>, not the label itself, and so I needed to remove the last layer of the 
+              model before feeding data through.
+            </p>
+            <p>
+
+            </p>
+        </div>
+      </div>
+
+      <div class="row probootstrap-gutter16">
+        <div class="col-md-1 probootstrap-animate" data-animate-effect="fadeIn">
+        </div>
+
+        <div class="col-md-10 probootstrap-animate" data-animate-effect="fadeIn">
+          <a class="img-bg" style="background-image: url(img/mock_pinterest/soft-cosine-similarity-matrix.png);">
+            <div class="probootstrap-photo-details">
+              <!-- <h2>Pond: The App for Meeting New People in Real Life</h2>
+              <p>Social Media</p> -->
+            </div>
+          </a>
+      </div>
+      </div>
+    <br>
+    <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8 text-center">
+          <h5>Cosine Similarity Matrix: https://www.machinelearningplus.com/wp-content/uploads/2018/10/soft-cosine-similarity-matrix.png</h5>
+          <br>
+          <p>
+              After all of the images were pre-processed as Numpy arrays of the proper size of (None, 224, 224, 3), and the Keras model dropped the prediction layer, 
+              all that was left to do was to feed the stack of image matrices to the model.predict() function and harvest the model outputs.
+          </p>
+          <p>
+            This is where the cosine similarity came in. A cosine similarity matrix needed to be constructed, comparing each model output for each image with every other image's model output.
+            Then, all that was left to do was use this cosine similarity matrix as a lookup table, and given an image from the user, we could look up the image in our look-up matrix, 
+            find the maximum cosine similarity score, and then return that image, or rather a list of similar images as the "related images".
+          </p>
+          <p>
+            
+          </p>
+      </div>
+    </div>
+
+    <div class="row probootstrap-gutter16">
+      <div class="col-md-1 probootstrap-animate" data-animate-effect="fadeIn">
+      </div>
+
+      <div class="col-md-10 probootstrap-animate" data-animate-effect="fadeIn">
+        <a class="img-bg" style="background-image: url(img/mock_pinterest/shoe_recomm.PNG);">
+          <div class="probootstrap-photo-details">
+            <!-- <h2>Pond: The App for Meeting New People in Real Life</h2>
+            <p>Social Media</p> -->
+          </div>
+        </a>
+    </div>
+    </div>
+  <br>
+  <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 text-center">
+        <p>
+          Now we can see some cool things happening! Let's say we use the Keras InceptionV3 model, we can see it performing really well to give us
+          quite accurate recommendations for similar images, which in this case is shoes.
+        </p>
+        <p>
+          If you would like to see the full working code, please visit my Github repo <a href="https://github.com/aruparc/ImageRecommendationExploration/blob/main/image_recommender_system.ipynb" target="_blank">here</a>.
+          Special thanks to <a href="https://medium.com/@alexandrewrg" target="_blank">Alexandre Wrg</a> for his intuitive tutorial on building and understanding
+          this recommender, please visit his Medium page and give him a like! 
+        </p>
+    </div>
+  </div>
+
+
+  <div class="row probootstrap-lg-service probootstrap-animate" data-animate-effect="fadeIn">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 text-center">
+        <h2 class="mt0 text-center">References</h2>
+        <p>
+          1. Alexandre Wrg. Oct 2, 2019. Image recommender engine -- leveraging transfer learnign. Accessed from: https://towardsdatascience.com/image-recommendation-engine-leverage-transfert-learning-ec9af32f5239.
+        </p>
+        <p>
+          2. Param Aggarwal. 2019. Fashion Product Images (small). Accessed from: https://www.kaggle.com/paramaggarwal/fashion-product-images-small.
+        </p>
+        <p>
+          3. Python Image Library. 2021. Accessed from: https://pillow.readthedocs.io/en/stable/handbook/tutorial.html#using-the-image-class.
+        </p>
+        <p>
+          4. Rohit Thakur. Aug 6, 2019. Step by step VGG16 implementation in Keras for beginners. Accessed from: https://towardsdatascience.com/step-by-step-vgg16-implementation-in-keras-for-beginners-a833c686ae6c.
+        </p>
+    </div>
+  </div>
+
+
+      </div>
+      </div>
+    </section>
+
 
       
   <!-- END section -->
